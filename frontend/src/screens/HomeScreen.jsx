@@ -18,7 +18,7 @@ function HomeScreen() {
         <Row>
             {products.map(product => (
                 <Col key = {product._id} sm ={12} md={6} Lg={4} xL={3}>
-                     <Product product = {product}/>
+                     <Product product = {product}/> {/* {eatliar data called after map in h3 {product.name} but line remove} data is sending in Product.jsx file via object {product} as props*/}
                 </Col>
                
             ))}
