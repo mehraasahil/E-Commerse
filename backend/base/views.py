@@ -46,7 +46,7 @@ def getProducts(request):
 #             break
 #     return Response(product)
 
-@api_view(['GET'])
+@api_view(['GET'])        #this is used to show selected item the data of productscreen rendring by this function
 def getProduct(request,pk):
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product, many=False)
