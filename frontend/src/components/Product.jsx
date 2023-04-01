@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Product({product}) {   {/* this product is object coming from HomeScreen.jsx */}
   return (
     
-        <Card className='my-3 p-3 rounded'>             {/* Taking data from file HomeScreen.jsx  as props and sendind in Home file */}
+        <Card className='my-3 p-3 rounded'>             {/* .Taking data from file HomeScreen.jsx  as props and sendind in Home file */}
             <Link to={`/product/${product._id}`}>
          <Card.Img src={product.image}/>
          </Link>
