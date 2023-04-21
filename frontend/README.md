@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 .
 
-
+// npm install redux react-redux redux-thunk redux-devtools-extension
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
