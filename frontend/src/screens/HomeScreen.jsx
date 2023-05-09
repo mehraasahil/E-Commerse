@@ -5,6 +5,8 @@ import {useDispatch,useSelector} from 'react-redux'
 import { Row ,Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 // import axios from 'axios' // this part also changed into comment after the redux
 function HomeScreen() {
   const dispatch = useDispatch();
@@ -23,8 +25,8 @@ function HomeScreen() {
   // const products = []; // this arrar remove after useselector eror,loading,products//
   return (
     <div>
-      {loading?<h2>Loading...</h2>
-          : error ? <h3>{error}</h3>
+      {loading?<Loader/>
+          : error ? <Message variant = 'danger'>{error}</Message>
           :
           <Row>
             {products.map(product => (
