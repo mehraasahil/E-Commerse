@@ -4,7 +4,7 @@ from .products import products
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Product
-from .serializers import ProductSerializer ,User
+from .serializers import ProductSerializer ,UserSerializer,UserSerializerWithToken
 
 
 
@@ -22,8 +22,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self,attrs):
         data = super().validate(attrs)
 
-        data['username'] = self.user.username
-        data['email'] = self.user.email
+        serializer = UserSerializerWithToken(self.user).data
+        for k, v in serializer.items():
+            data[k] = v
 
 
         return data    
@@ -53,10 +54,9 @@ def getRoutes(request):
 
 
 @api_view(['GET'])
-def getProducts(request):
+def getUserProfile(request):
     user = request.user
-    products = Product.objects.all()
-    serializer = ProductSerializer(products, many=True)
+    serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
 @api_view(['GET'])
