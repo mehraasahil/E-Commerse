@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User    #Use for to userlogin token without going  in admin
 from rest_framework_simplejwt.tokens import RefreshToken
 from . models import Product
-
 
 
 class UserSerializer(serializers.ModelSerializer):
