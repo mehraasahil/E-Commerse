@@ -3,7 +3,6 @@ from django.contrib.auth.models import User    #Use for to userlogin token witho
 from rest_framework_simplejwt.tokens import RefreshToken
 from . models import Product
 
-
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
     _id = serializers.SerializerMethodField(read_only=True)
